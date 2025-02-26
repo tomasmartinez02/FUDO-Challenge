@@ -1,0 +1,113 @@
+openapi: 3.0.0
+info:
+  title: Product API
+  version: "1.0.0"
+  description: "API for authentication and product management."
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /auth:
+    post:
+      summary: "User authentication"
+      description: "Authenticates a user and returns a JWT token."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: "Successful authentication"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  message:
+                    type: string
+        "401":
+          description: "Unauthorized"
+
+  /products:
+    post:
+      summary: "Create a product asynchronously"
+      description: "Adds a product to a queue for asynchronous processing."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        "202":
+          description: "Product creation in progress"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "400":
+          description: "Bad request"
+
+    get:
+      summary: "List all products"
+      description: "Retrieves a list of all stored products."
+      responses:
+        "200":
+          description: "Successful retrieval"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    created_at:
+                      type: string
+                      format: date-time
+
+  /products/{id}:
+    get:
+      summary: "Retrieve a product by ID"
+      description: "Fetches a specific product by its unique identifier."
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "Product found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+        "404":
+          description: "Product not found"

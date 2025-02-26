@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'rack'
+gem 'puma'
+gem 'warden'
+gem 'bcrypt'
+gem 'jwt'
+gem 'pry'
+gem 'logger'
+gem 'sqlite3'
+gem 'sequel'
