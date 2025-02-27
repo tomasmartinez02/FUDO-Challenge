@@ -3,6 +3,7 @@ require 'json'
 require_relative 'config/warden'
 require_relative 'config/jwt_auth'
 require_relative 'models/product_store'
+require 'pry'
 
 class App
   def call(env)
@@ -24,7 +25,7 @@ class App
     when ['GET', '/products']
       handle_list_products(req, res)
 
-    when ['GET', %r{^/products/([\w-]+)$}]
+    when ->(method_path) { method_path[0] == 'GET' && method_path[1] =~ %r{^/products/(\d+)$} }
       handle_get_product(req, res)
 
     else

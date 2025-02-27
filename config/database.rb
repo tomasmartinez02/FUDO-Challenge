@@ -1,6 +1,6 @@
 require 'sequel'
 
-DB = Sequel.connect('sqlite://db/development.db')
+DB = Sequel.connect(ENV['RACK_ENV'] == 'test' ? 'sqlite://db/test.sqlite3' : 'sqlite://db/development.sqlite3')
 
 DB.create_table? :products do
   primary_key :id

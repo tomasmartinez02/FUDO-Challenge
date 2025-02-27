@@ -1,11 +1,13 @@
 require_relative 'app'
 require_relative 'config/warden'
+require_relative 'config/logging'
 require 'pry'
 require 'logger'
+require 'dotenv'
 
-logger = Logger.new($stdout)
+Dotenv.load
 
-use Rack::CommonLogger, logger
+use Rack::CommonLogger, LOGGER
 
 use Rack::Deflater
 
