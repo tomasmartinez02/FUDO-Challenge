@@ -1,5 +1,6 @@
 require_relative '../config/database'
 require 'bcrypt'
+require 'pry'
 
 class User < Sequel::Model(:users)
   plugin :timestamps, update_on_create: true
@@ -9,6 +10,7 @@ class User < Sequel::Model(:users)
   end
 
   def authenticate(password)
+    #binding.pry
     BCrypt::Password.new(password_hash) == password
   end
 end

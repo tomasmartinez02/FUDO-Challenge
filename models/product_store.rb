@@ -24,12 +24,11 @@ class ProductStore
           wait_time = params[:process_at] - Time.now
 
           if wait_time > 0
-            LOGGER.info "[Worker #{i}] Waiting #{wait_time.round(2)} seconds for product: #{params[:name]}"
             sleep wait_time
           end
 
           product = Product.create(name: params[:name])
-          LOGGER.info "[Worker #{i}] Product created successfully: #{product.values}"
+          LOGGER.info "[Worker #{i}]: Product created successfully: #{product.values}"
         end
       end
     end

@@ -1,0 +1,1 @@
+HTTP es un protocolo de comunicación perteneciente a la capa de aplicación del modelo OSI, que permite la transferencia de información en la web. Permite la solicitud y transferencia de recursos y se basa en un modelo de request-response. Es más seguro cuando se utiliza en su versión HTTPS.

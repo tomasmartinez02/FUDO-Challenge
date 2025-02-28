@@ -1,0 +1,2 @@
+FUDO es un software de gestión enfocado en comercios gastronómicos, con el objetivo de facilitar y automatizar la administración de los mismos. Ofrece diferentes funcionalidades como la gestión de ventas, pedidos y stock, entre otros.
+Además, FUDO se integra con aplicaciones de delivery y sistemas de comandas, ayudando a optimizar el proceso de toma de pedidos. También ofrece integraciones con medios de pago y una interfaz amigable, mejorando la experiencia del cliente.

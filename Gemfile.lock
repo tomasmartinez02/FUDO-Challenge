@@ -36,9 +36,8 @@ GEM
     rspec-support (3.13.2)
     sequel (5.89.0)
       bigdecimal
-    sqlite3 (2.6.0)
+    sqlite3 (1.7.3)
       mini_portile2 (~> 2.8.0)
-    sqlite3 (2.6.0-x86_64-linux-gnu)
     warden (1.2.9)
       rack (>= 2.0.9)
 
@@ -57,7 +56,7 @@ DEPENDENCIES
   rack-test
   rspec
   sequel
-  sqlite3
+  sqlite3 (~> 1.5)
   warden
 
 BUNDLED WITH

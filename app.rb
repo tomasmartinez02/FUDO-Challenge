@@ -4,6 +4,8 @@ require_relative 'config/warden'
 require_relative 'config/jwt_auth'
 require_relative 'models/product_store'
 require 'pry'
+require './config/database'
+require './models/user'
 
 class App
   def call(env)
@@ -29,7 +31,7 @@ class App
       handle_get_product(req, res)
 
     else
-      handle_unauthorized(res)
+      handle_not_found(res)
     end
 
     res.finish
@@ -37,7 +39,7 @@ class App
 
   private
 
-  def handle_unauthorized(res)
+  def handle_not_found(res)
     res.status = 404
     res['Content-Type'] = 'application/json'
     res.write({ error: 'Not Found' }.to_json)
