@@ -56,8 +56,8 @@ RACK_ENV=test bundle exec rspec
 
 ## Decisiones de diseño
 
-- Se utilizó una base de datos SQLite para persistir productos y usuarios, debido a su configuración simple para estos casos.
-- Para resolver la asincronía en la creación de productos, se utilizó un worker con una cola de mensajes. La cantidad de workers se define a través de la variable de entorno PRODUCT_WORKERS para evitar crear un hilo por cada procesamiento de producto y así saturar el sistema.
+- Se utilizó una base de datos **SQLite** para persistir productos y usuarios, debido a su configuración simple para estos casos.
+- Para resolver la asincronía en la creación de productos, se utilizó un **worker** con una **cola de mensajes**. La cantidad de workers se define a través de la variable de entorno `PRODUCT_WORKERS` para evitar crear un hilo por cada procesamiento de producto y así saturar el sistema.
 - Las contraseñas de los usuarios se guardan encriptadas por razones de seguridad.
 
 ---
