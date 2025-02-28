@@ -10,7 +10,6 @@ class User < Sequel::Model(:users)
   end
 
   def authenticate(password)
-    #binding.pry
     BCrypt::Password.new(password_hash) == password
   end
 end
